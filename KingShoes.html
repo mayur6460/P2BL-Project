@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KingShoes-E-Commerce</title>
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <i class="fas fa-crown me-2"></i>King Shoes
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        
+        <!-- Login & Signup Buttons -->
+        <li class="nav-item ms-2">
+          <a href="login.html" class="btn btn-outline-light btn-sm login-btn">
+            <i class="fas fa-sign-in-alt me-1"></i>Login
+          </a>
+        </li>
+        <li class="nav-item ms-2">
+          <a href="login.html?mode=signup" class="btn btn-warning btn-sm signup-btn">
+            <i class="fas fa-user-plus me-1"></i>Sign Up
+          </a>
+        </li>
+
+        <li class="nav-item ms-3">
+          <button class="btn btn-outline-light cart-icon" id="cartButton" title="Open cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <h3>Your Cart</h3>
+    <div id="cartItems">
+      <p class="text-center" id="emptyCartMessage">Your cart is empty</p>
+    </div>
+    <div class="cart-total" id="cartTotal">Total: ₹0.00</div>
+    <button class="btn btn-success w-100 mt-3" id="checkoutBtn">Checkout</button>
+    <button class="btn btn-outline-secondary w-100 mt-2" id="closeCartBtn">Continue Shopping</button>
+  </div>
+
+  <!-- Hero Section -->
+  <!-- Animated Hero Section -->
+  <section id="hero">
+    <div class="hero-slider">
+      <!-- Slide 1 -->
+      <div class="hero-slide active"
+        style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2012&q=80')">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Step Into Royalty</h1>
+            <p class="hero-subtitle">Discover our premium collection of king-worthy footwear crafted for comfort and
+              style.</p>
+            <a href="#products" class="btn btn-warning hero-btn">Shop Collection</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide"
+        style="background-image: url('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80')">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Premium Craftsmanship</h1>
+            <p class="hero-subtitle">Each pair is meticulously crafted with the finest materials for unmatched quality.
+            </p>
+            <a href="#products" class="btn btn-warning hero-btn">Explore Designs</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide"
+        style="background-image: url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80')">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title">Limited Edition</h1>
+            <p class="hero-subtitle">Exclusive designs that make a statement. Be the king of style wherever you go.</p>
+            <a href="#products" class="btn btn-warning hero-btn">View Limited Editions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider Navigation Dots -->
+    <div class="slider-nav">
+      <div class="slider-dot active" data-slide="0"></div>
+      <div class="slider-dot" data-slide="1"></div>
+      <div class="slider-dot" data-slide="2"></div>
+    </div>
+
+    <!-- Slider Arrows -->
+    <div class="slider-arrows">
+      <button class="slider-arrow prev-arrow">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slider-arrow next-arrow">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Brands Section -->
+  <section id="brands" class="py-5 text-center bg-light">
+    <div class="container">
+      <h2 class="mb-4">Our Brands</h2>
+      <div class="d-flex flex-wrap justify-content-center align-items-center">
+        <a href="https://www.nike.com/" target="_blank" rel="noopener"><img
+            src="https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo.png" alt="Nike" class="brand-logo"></a>
+        <a href="https://www.skechers.in/" target="_blank" rel="noopener"><img
+            src="https://logos-world.net/wp-content/uploads/2023/02/Skechers-Emblem.png" alt="Skechers"
+            class="brand-logo"></a>
+        <a href="https://www.adidas.com/" target="_blank" rel="noopener"><img
+            src="https://logos-world.net/wp-content/uploads/2020/04/Adidas-Logo.png" alt="Adidas"
+            class="brand-logo"></a>
+        <a href="https://www.puma.com/" target="_blank" rel="noopener"><img
+            src="https://logos-world.net/wp-content/uploads/2020/04/Puma-Logo.png" alt="Puma" class="brand-logo"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4 fw-bold">Our Latest Shoes</h2>
+
+      <!-- Search and Filter Section -->
+      <input type="text" id="searchBar" class="form-control mb-4" placeholder="Search products...">
+
+      <!-- Category Filter -->
+      <div class="category-filter mb-4">
+        <h3 class="Category">Category:</h3>
+        <button class="btn btn-outline-primary active" data-filter="all">All</button>
+        <button class="btn btn-outline-primary" data-filter="men">Men</button>
+        <button class="btn btn-outline-primary" data-filter="women">Women</button>
+        <button class="btn btn-outline-primary" data-filter="kids">Kids</button>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="productsGrid" class="row g-4">
+        <!-- JS will inject product cards here -->
+      </div>
+
+      <div id="noResults" class="text-center text-muted mt-4" style="display:none;">
+        <i class="fas fa-search fa-3x mb-3"></i>
+        <h4>No products found</h4>
+        <p>Try adjusting your search or filter criteria</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Review Section -->
+  <section id="reviews" class="py-5 bg-light">
+    <div class="container text-center">
+      <h2 class="mb-4">What Our Customers Say</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="p-3 bg-white shadow-sm rounded">
+            <p>"Fantastic quality and fast delivery!"</p>
+            <h6>-Sagil</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 bg-white shadow-sm rounded">
+            <p>"Affordable prices and great support."</p>
+            <h6>-Jay</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-3 bg-white shadow-sm rounded">
+            <p>"Love the selection of products!"</p>
+            <h6>-Harsh</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <form class="mx-auto" style="max-width: 600px;">
+        <div class="mb-3"><input type="text" class="form-control" placeholder="Your Name" required /></div>
+        <div class="mb-3"><input type="email" class="form-control" placeholder="Your Email" required /></div>
+        <div class="mb-3"><textarea class="form-control" rows="5" placeholder="Your Message" required></textarea></div>
+        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="container">
+      <div class="row text-center text-md-start">
+        <div class="col-md-4 footer-section">
+          <h5>Contact Info</h5>
+          <p>KingShoes Pvt. Ltd.<br>7Cross complex ,Khamdhrol Road<br>Junagadh, India 362001 </p>
+          <p>Email: mayurparmar1286@gmail.com<br>Phone: +91 9876543210</p>
+        </div>
+        <div class="col-md-4 footer-section">
+          <h5>Follow Us</h5>
+          <div class="footer-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4 footer-section developers">
+          <h5>Develop By</h5>
+          <p class="footer-name">Parmar Mayur</p>
+          <p class="footer-name">Rais Sagil</p>
+          <p class="footer-name">Ambliya Harsh</p>
+          <p class="footer-name">Borkhatriya Jay</p>
+        </div>
+      </div>
+      <hr style="background-color: #666;">
+      <p class="text-center mb-0">&copy; 2025 ShopSmart. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
